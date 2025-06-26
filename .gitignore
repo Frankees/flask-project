@@ -1,0 +1,4 @@
+venv/
+save.txt
+app/__pycache__
+.vscode/
