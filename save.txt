@@ -1,0 +1,6 @@
+pip install requests
+python -m venv venv
+venv\Scripts\activate
+deactivate
+pip install flask
+python.exe -m pip install --upgrade pip
