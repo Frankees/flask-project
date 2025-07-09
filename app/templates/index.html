@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>inicio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto Flask</title>
 </head>
 <body>
-        <div>
-            <h3> flask </h3>
-            <h5>senai</h5>
-        </div>
-        <div>
-            <p>aula flask</p>
-        </div>
+    <div>
+        <h3>Projeto Flask</h3>
+        <h5>@senaisc</h5>
+    </div>
+    <div>
+        <p>Bem-vindo {{context.usuario}} à aula de Flask!</p>
+        <p><b>idade:</b>{{context.idade}}</p>
+
+        <a href="{{url_for('Contato')}}">Contato</a>
+        <a href="{{url_for('Contato_lista') }}">Contato - Lista</a>
+    </div>
 </body>
 </html>
