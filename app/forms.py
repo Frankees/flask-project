@@ -14,10 +14,10 @@ class ContatosForm(FlaskForm):
 
     def save(self):
         contato = Contato(
-            nome = self.nome.data,
-            email = self.email.data,
-            assunto = self.assunto.data,
-            mensagem = self.mensagem.data
+            nome=self.nome.data,
+            email=self.email.data,
+            assunto=self.assunto.data,
+            mensagem=self.mensagem.data
         )
         db.session.add(contato)
         db.session.commit()

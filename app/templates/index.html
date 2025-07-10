@@ -6,16 +6,13 @@
     <title>Projeto Flask</title>
 </head>
 <body>
-    <div>
+    <div class="container mt-4">
         <h3>Projeto Flask</h3>
         <h5>@senaisc</h5>
-    </div>
-    <div>
-        <p>Bem-vindo {{context.usuario}} à aula de Flask!</p>
-        <p><b>idade:</b>{{context.idade}}</p>
-
-        <a href="{{url_for('Contato')}}">Contato</a>
-        <a href="{{url_for('Contato_lista') }}">Contato - Lista</a>
+        <p>Bem-vindo {{ context.usuario }} à aula de Flask!</p>
+        <p><b>Idade:</b> {{ context.idade }}</p>
+        <a href="{{ url_for('contato_view') }}">Contato</a> |
+        <a href="{{ url_for('contato_lista') }}">Contato - Lista</a>
     </div>
 </body>
 </html>
