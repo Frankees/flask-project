@@ -1,29 +1,52 @@
 {% extends 'base.html' %}
 
-    {% block content %}
-        <div class="container">
-            {% include 'nav.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row mt-4">
             <h3>Lista de Contatos</h3>
-            <table class="table table-striped mt-3">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>E-Mail</th>
-                        <th>Assunto</th>
-                        <th>Respondido</th>
-                    </tr>
-                </thead>
-                <tbody>            
-                    {% for contato in context['dados'] %}
-                    <tr>
-                        <td>{{ contato.nome }}</td>
-                        <td>{{ contato.email }}</td>
-                        <td>{{ contato.assunto }}</td>
-                        <td>{{ 'Sim' if contato.respondido else 'Não' }}</td>
-                        <td><a href="{{url_for('contatoDetail', id=linha.id)}}"></a></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+
+            <form method="get" class="row">
+                <div class = "col-9">
+                    <input type="text" name="pesquisa" class="form-control">
+                </div>
+                <div class="col-3">
+                    <button type="submit" class="btn btn-primary">Pesquisar</button>
+                </div>
+
+            </form>
+
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>E-Mail</th>
+                            <th>Assunto</th>
+                            <th>Respondido</th>
+                        </tr>
+                    </thead>
+                    <body>
+                        {% for linha in context['dados'] %}
+                        <tr>
+                            <td>{{linha.nome}}</td>
+                            <td>{{linha.email}}</td>
+                            <td>{{linha.assunto}}</td>
+                            <td>
+                                {% if linha.respondido == 1 %}
+                                    SIM
+                                {% else %}
+                                    NÃO
+                                {% endif %}
+                            </td>
+                            <td><a href="{{url_for('contatoDetail', id=linha.id)}}"><img src="{{url_for('static', filename='img/whatsapp.png')}}" style="width: 20px;"></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </body>
+                </table>
+            </div>
         </div>
-    {% endblock %}
+        {% include 'nav.html' %}
+    </div>
+
+{% endblock %}
